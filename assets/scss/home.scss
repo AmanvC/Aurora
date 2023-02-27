@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+}
+
+#home-container{
+    height: calc(100vh - 90px);
+    overflow: scroll;
+    display: flex;
+    justify-content: center;
+
+    #questions-container{
+        // background-color: red;
+        width: 500px;
+
+        .question{
+            margin: 10px 0;
+            border: 1px solid lightgray;
+            background-color: #fff;
+            box-shadow: 0.5px 0.5px 4px gray;
+            padding: 20px;
+        }
+    }
+}

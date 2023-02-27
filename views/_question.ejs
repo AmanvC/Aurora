@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="/css/_question.css">
+
+<div id="question-container">
+
+    <% if(locals.user.id == question.user.id){ %>
+    <div id="delete-container">
+        <a id="delete-question" href="/questions/destroy/<%= question.id %>">
+            <div>
+                <i class="fa-solid fa-trash"></i>
+            </div>
+        </a>
+    </div>    
+    <% } %>
+
+    <div id="user-container">
+        <!-- Add profile picture here -->
+        <p id="user-name">
+            <a href="/profile/<%= question.user.id %>"><%= question.user.name %></a>
+        </p>
+        <!-- <small>Content Creator</small> -->
+    </div>
+
+    <div id="question-content">
+        <p><%= question.content %></p>
+        <small><%= question.createdAt.toLocaleDateString() + " -- " + question.createdAt.toLocaleTimeString() %></small>
+
+    </div>
+
+    <div id="answer-container">
+        <% if(question.comments.length == 0){ %>
+            <span class="answers-count no-answers">No answers yet</span>    
+        <% }else{ %>
+            <span class="answers-count answers" onclick="showComments('<%= question.id %>')"><%= question.comments.length %> answers</span>
+        <% } %>
+        <div class="answer-button" onclick="showAnswerForm('<%= question.id %>', this)">
+            <i class="fa-regular fa-pen-to-square"></i>
+            <span>Answer</span>
+        </div>
+    </div>
+
+</div>
+
+<div id="comment-form-container" class="comment-form <%= question.id %>">
+    <div class="comment-form">
+        <span id="close" onclick="closeForm('<%= question.id %>')"><i class="fa-solid fa-xmark"></i></span>
+        <div id="details-container">
+            <p id="user-name">Posting as <%= locals.user.name %></p>
+            <p id="text"><%= question.content %></p>
+        </div>
+        <form action="/comments/create/" method="POST">
+            <textarea name="comment" placeholder="Write your answer here..." required></textarea>
+            <input type="hidden" name="questionId" value="<%= question._id %>">
+            <input type="submit" value="Answer">
+        </form>
+    </div>
+</div>
+
+<div id="question-comments-container" class="comments <%= question.id %>">
+    <ul id="question-comments-<%= question._id %>">
+        <% for(comment of question.comments){ %>
+            
+            <%- include('_comment') -%>
+
+        <% } %>
+    </ul>
+</div>
+

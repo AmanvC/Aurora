@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="/css/login.css">
+
+<div id="container">
+    <div id="header">
+        <h1>Aurora</h1>
+        <p>A place to share knowledge and better understand the world</p>
+    </div>
+    <div id="form-container">
+        <div id="signup-container">
+            <p>By continuing you indicate that you agree to Aurora's <a href="">Terms of Service</a> and <a href="">Privacy Policy</a></p>
+            <a href="/auth/google">
+                <div class="social-signup">
+                    <i class="fa-brands fa-google"></i>
+                    <span>Continue with Google</span>
+                </div>
+            </a>
+            <a href="/auth/facebook">
+                <div class="social-signup">
+                    <i class="fa-brands fa-facebook"></i>
+                    <span>Continue with Facebook</span>
+                </div>
+            </a>
+            <div class="local-signup">
+                <a href="/sign-up">Sign up with email</a>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div id="login-container">
+            <p>Login</p>
+            <form action="/create-session" method="POST">
+                <div class="input">
+                    <p>Email</p>
+                    <input type="text" name="email" placeholder="Your email" required >
+                </div>
+                <div class="input">
+                    <p>Password</p>
+                    <input type="password" name="password" placeholder="Your password" required>
+                </div>
+                <div id="actions">
+                    <a href="">Forgot password?</a>
+                    <button id="submit">
+                        <span>Login</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

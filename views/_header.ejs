@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="/css/_header.css">
+
+<% if(locals.user){ %>
+    <header>
+        <h1 id="title" class="icon"><a href="/home">Aurora</a></h1>
+        <div id="nav-items">
+            <div class="icon" id="ask-question"><i class="fa-solid fa-circle-plus"></i></div>
+            <a href="" class="icon"><i class="fa-solid fa-people-arrows"></i></a>
+            <input type="text" id="search" placeholder="Search Aurora...">
+            <a href="/profile/<%= locals.user.id %>" class="icon"><%= locals.user.name.split(' ')[0] %></a>
+            <a id="logout" class="icon" href="/logout">Logout</a>
+        </div>
+    </header>
+
+    
+
+    <div id="question-wrapper">
+        <div id="question-container">
+            <span id="close"><i class="fa-solid fa-xmark"></i></span>
+            <p>Ask Question</p>
+            <div id="tips">
+                <span>Tips on getting good answers quickly</span>
+                <ul>
+                    <li>Make sure your question has not been asked already</li>
+                    <li>Keep your question short and to the point</li>
+                    <li>Double-check grammar and spelling</li>
+                </ul>
+            </div>
+            <form action="/questions/post" id="question-form" method="POST">
+                <textarea name="question" id="question-input" placeholder='Start your question with "What", "How", "Why", etc.' required></textarea>
+                <input type="submit" value="Post Question">
+            </form>
+        </div>
+    </div>
+
+<% } %>
+
+<script src="/js/_header.js"></script>

@@ -1,0 +1,73 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  background-image: url("../media/images/IMG_20171223_180050-01.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  body section {
+    height: 500px;
+    width: 600px;
+    background-color: white;
+    border-radius: 4px;
+    padding: 20px; }
+    body section #header {
+      margin-bottom: 50px; }
+      body section #header h1 {
+        font-size: 50px;
+        margin-bottom: 10px; }
+      body section #header p {
+        font-size: 14px;
+        margin: 0;
+        color: #a1a1a1; }
+        body section #header p a {
+          text-decoration: none;
+          color: rgba(0, 0, 255, 0.479); }
+          body section #header p a:hover {
+            text-decoration: underline; }
+    body section #signup-form #input-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px 20px;
+      justify-content: space-evenly; }
+      body section #signup-form #input-container > p {
+        margin: 12px 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid lightgray; }
+      body section #signup-form #input-container .input {
+        width: 275px; }
+        body section #signup-form #input-container .input p {
+          margin: 3px 0;
+          font-size: 13px;
+          font-weight: 600; }
+        body section #signup-form #input-container .input input {
+          box-sizing: border-box;
+          padding: 10px;
+          border: 1px solid lightgray;
+          width: 100%;
+          border-radius: 5px;
+          outline: none;
+          font-size: 16px; }
+          body section #signup-form #input-container .input input::placeholder {
+            opacity: 0.4; }
+          body section #signup-form #input-container .input input:hover {
+            border: 1px solid rgba(0, 0, 255, 0.479); }
+    body section #signup-form #button-container {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 20px; }
+      body section #signup-form #button-container button {
+        margin-top: 35px;
+        border: none;
+        color: #fff;
+        padding: 10px 20px;
+        background-color: #9e4040;
+        border-radius: 5px;
+        letter-spacing: 1px;
+        cursor: pointer; }
+        body section #signup-form #button-container button:active {
+          transform: scale(0.95); }

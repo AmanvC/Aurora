@@ -1,0 +1,124 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  background-image: url("../media/images/IMG_20171223_180050-01.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  body #container {
+    height: 500px;
+    width: 600px;
+    background-color: white;
+    border-radius: 4px;
+    padding: 20px; }
+    body #container #header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 30px; }
+      body #container #header h1 {
+        color: #9c1515;
+        font-size: 60px;
+        margin: 0; }
+      body #container #header p {
+        margin: 10px 0 0 0;
+        letter-spacing: 1px;
+        font-weight: 600; }
+    body #container #form-container {
+      display: flex;
+      justify-content: space-evenly;
+      padding-bottom: 20px;
+      border-bottom: 1px solid lightgray;
+      height: 60%; }
+      body #container #form-container #signup-container {
+        width: 40%;
+        display: flex;
+        flex-direction: column; }
+        body #container #form-container #signup-container > p {
+          font-size: 0.8rem;
+          color: #a0a0a0;
+          margin-bottom: 30px; }
+          body #container #form-container #signup-container > p a {
+            color: #5454f1;
+            text-decoration: none; }
+            body #container #form-container #signup-container > p a:hover {
+              text-decoration: underline; }
+        body #container #form-container #signup-container > a {
+          color: black;
+          text-decoration: none; }
+        body #container #form-container #signup-container .social-signup {
+          border: 1px solid lightgray;
+          padding: 10px;
+          margin: 10px 0;
+          cursor: pointer; }
+          body #container #form-container #signup-container .social-signup i {
+            color: #5050f3; }
+          body #container #form-container #signup-container .social-signup:hover {
+            background-color: #eeeeee; }
+        body #container #form-container #signup-container .local-signup {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 5px;
+          border-radius: 10px; }
+          body #container #form-container #signup-container .local-signup a {
+            margin: 0;
+            font-size: 14px;
+            cursor: pointer;
+            color: #8f8f8f;
+            text-decoration: none; }
+          body #container #form-container #signup-container .local-signup:hover {
+            background-color: #eeeeee; }
+      body #container #form-container .line {
+        border-right: 1px solid lightgray;
+        height: 100%; }
+      body #container #form-container #login-container {
+        width: 40%; }
+        body #container #form-container #login-container > p {
+          margin: 12px 0;
+          padding-bottom: 10px;
+          border-bottom: 1px solid lightgray; }
+        body #container #form-container #login-container .input {
+          margin: 30px 0; }
+          body #container #form-container #login-container .input p {
+            margin: 3px 0;
+            font-size: 13px;
+            font-weight: 600; }
+          body #container #form-container #login-container .input input {
+            box-sizing: border-box;
+            padding: 10px;
+            border: 1px solid lightgray;
+            width: 100%;
+            border-radius: 5px;
+            outline: none;
+            font-size: 16px; }
+            body #container #form-container #login-container .input input::placeholder {
+              opacity: 0.4; }
+            body #container #form-container #login-container .input input:hover {
+              border: 1px solid rgba(0, 0, 255, 0.479); }
+        body #container #form-container #login-container #actions {
+          display: flex;
+          justify-content: space-between;
+          align-items: center; }
+          body #container #form-container #login-container #actions a {
+            font-size: 12px;
+            color: #8f8f8f;
+            cursor: pointer;
+            text-decoration: none; }
+            body #container #form-container #login-container #actions a:hover {
+              text-decoration: underline; }
+          body #container #form-container #login-container #actions button {
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            background-color: #9e4040;
+            border-radius: 5px;
+            letter-spacing: 1px;
+            cursor: pointer; }
+            body #container #form-container #login-container #actions button:active {
+              transform: scale(0.95); }

@@ -1,0 +1,37 @@
+.question-comments-li{
+    list-style: none;
+    background-color: #fff;
+    display: block;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+
+    .comment-user-name{
+        font-size: 12px;
+        color: gray;
+        margin-bottom: 5px;
+
+        a{
+            text-decoration: none;
+            color: gray;
+
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .comment-content{
+        font-weight: 600;
+        margin: 10px 0;
+    }
+
+    .delete-comment{
+        padding: 3px;
+        border-radius: 5px;
+        border: 1px dotted red;
+        text-decoration: none;
+        color: red;
+        font-size: 8px;
+    }
+}

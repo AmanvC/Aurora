@@ -1,0 +1,7 @@
+* {
+  font-family: Arial, Helvetica, sans-serif; }
+  * body {
+    margin: 0;
+    background-color: whitesmoke; }
+  * ::-webkit-scrollbar {
+    width: 0; }

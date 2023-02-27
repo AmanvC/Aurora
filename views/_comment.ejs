@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="/css/_comment.css">
+
+<li class="question-comments-li">
+    
+    <p class="comment-user-name">
+        <a href="/profile/<%= comment.user.id %>"><%= comment.user.name %></a>
+         - <small><%= comment.createdAt.toLocaleDateString() + " -- " + comment.createdAt.toLocaleTimeString() %></small>
+    </p>
+    <p class="comment-content"><%= comment.content %></p>
+    <% if((locals.user.id == comment.user.id) || (question.user.id == locals.user.id)){ %>
+        <a class="delete-comment" href="/comments/destroy/<%= comment.id %>">Delete</a>  
+    <% } %>
+    
+</li>

@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="/css/home.css">
+
+<section id="home-container">
+
+    <div id="questions-container">
+        
+        <% for(question of locals.questions){ %>
+            <div class="question">
+                <%- include('_question') -%>
+            </div>
+        <% } %>
+        
+    </div>
+
+    <div id="interests-container">
+
+    </div>
+    
+</section>
+
+<!-- <section id="users-profile">
+    <h2>Users</h2>
+    <% for(u of users_list){ %>
+        <p>
+            <a href="/profile/<%= u.id %>"><%= u.name %></a> 
+        </p>   
+    <% } %>
+</section> -->
+
+<script src="/js/home.js"></script>
+    

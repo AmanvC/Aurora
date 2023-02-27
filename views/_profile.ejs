@@ -1,0 +1,13 @@
+
+<p><%= user_profile.name %></p>
+<p><%= user_profile.email %></p>
+
+<% if(locals.user.id == user_profile.id){ %>
+
+    <form action="/profile/update" method="POST">
+        <input type="text" name="name" placeholder="Your Name" value="<%= user_profile.name %>" required>
+        <input type="hidden" name="id" value="<%= user_profile.id %>">
+        <input type="submit" value="Update">
+    </form>
+
+<% } %>

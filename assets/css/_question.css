@@ -1,0 +1,143 @@
+#question-container #user-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; }
+  #question-container #user-container #user-name {
+    font-size: 16px; }
+    #question-container #user-container #user-name a {
+      text-decoration: none;
+      color: #666666; }
+
+#question-container #question-content {
+  margin-bottom: 16px; }
+  #question-container #question-content > p {
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 5px; }
+  #question-container #question-content > small {
+    font-size: 12px;
+    color: lightgray; }
+
+#question-container #delete-container {
+  position: relative; }
+  #question-container #delete-container #delete-question {
+    position: absolute;
+    top: -5px;
+    right: 0;
+    font-size: 14px;
+    color: #ff7878;
+    padding: 5px;
+    border: 1px dotted #ff7878; }
+
+#question-container .answers-count {
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 5px;
+  font-weight: 600; }
+
+#question-container .answers {
+  cursor: pointer; }
+  #question-container .answers:hover {
+    text-decoration: underline; }
+
+#question-container #answer-container {
+  color: gray; }
+  #question-container #answer-container .answer-button {
+    margin-left: 10px;
+    display: inline-block;
+    padding: 10px;
+    border: 1px dotted lightgray;
+    border-radius: 20px;
+    cursor: pointer; }
+
+#comment-form-container {
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  animation: animate 0.25s ease-in-out; }
+
+@keyframes animate {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+  #comment-form-container .comment-form {
+    background-color: #fafafa;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    width: 700px;
+    border-radius: 10px; }
+    #comment-form-container .comment-form > p {
+      font-size: 48px;
+      margin: 0; }
+    #comment-form-container .comment-form #close {
+      font-size: 30px;
+      cursor: pointer;
+      position: absolute;
+      top: 20px;
+      left: 25px;
+      color: #000; }
+      #comment-form-container .comment-form #close:active {
+        transform: scale(0.9); }
+    #comment-form-container .comment-form #details-container {
+      margin-top: 100px;
+      padding: 20px; }
+      #comment-form-container .comment-form #details-container #user-name {
+        margin-bottom: 20px; }
+      #comment-form-container .comment-form #details-container #text {
+        font-size: 24px;
+        font-weight: 600; }
+    #comment-form-container .comment-form form {
+      height: 300px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px; }
+      #comment-form-container .comment-form form textarea {
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        height: 200px;
+        width: 650px;
+        resize: none;
+        padding: 20px;
+        font-size: 20px;
+        box-shadow: 1px 1px 10px lightgray;
+        border-radius: 10px; }
+        #comment-form-container .comment-form form textarea:focus, #comment-form-container .comment-form form textarea:hover {
+          outline: 1px solid #2e69ff; }
+        #comment-form-container .comment-form form textarea::placeholder {
+          opacity: 0.5; }
+      #comment-form-container .comment-form form input[type=submit] {
+        position: relative;
+        padding: 10px 15px;
+        background-color: #9e4040;
+        border: none;
+        color: #fff;
+        font-size: 20px;
+        border-radius: 20px;
+        left: 250px;
+        box-shadow: 2px 2px 10px gray;
+        cursor: pointer; }
+        #comment-form-container .comment-form form input[type=submit]:active {
+          transform: scale(0.9); }
+
+#question-comments-container {
+  margin-top: 20px;
+  display: none;
+  background-color: #d4d4d4;
+  padding: 10px 10px 0 10px;
+  border-radius: 10px;
+  border: 1px dashed #383838; }
+  #question-comments-container ul {
+    padding-left: 0px; }

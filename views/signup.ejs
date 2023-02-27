@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="/css/sign_up.css">
+
+<section>
+    <div id="header">
+        <h1>Sign Up here!</h1>
+        <p>Already Signed Up? Click <a href="/">here</a> to Login</p>
+    </div>
+    <form id="signup-form" action="/create-user" method="POST">
+        <div id="input-container">
+            <div class="input">
+                <p>First Name</p>
+                <input type="text" name="f_name" placeholder="Your First Name" required>
+            </div>
+            <div class="input">
+                <p>Last Name</p>
+                <input type="text" name="l_name" placeholder="Your Last Name" required>
+            </div>
+            <div class="input">
+                <p>Email</p>
+                <input type="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="input">
+                <p>Re-enter Email</p>
+                <input type="email" name="re_email" placeholder="Re-enter Your Email" required>
+            </div>
+            <div class="input">
+                <p>Password</p>
+                <input type="password" name="password" placeholder="Set Your Password" required>
+            </div>
+            <div class="input">
+                <p>Re-enter Password</p>
+                <input type="password" name="re_password" placeholder="Re-enter Your Password" required>
+            </div>
+        </div>
+        
+        <div id="button-container">
+            <button id="submit">
+                <span>Signup</span>
+            </button>
+        </div>
+        
+    </form>
+</section>
