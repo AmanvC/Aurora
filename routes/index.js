@@ -11,6 +11,7 @@ router.post('/create-user', usersController.createUser);
 router.get('/home', passport.checkAuthentication, usersController.home);
 router.get('/logout', usersController.logout);
 router.get('/verify', usersController.verify);
+router.get('/verified', usersController.verified);
 router.get('/confirm/:confirmationCode', usersController.verifyUser);
 
 router.get('/auth/google', passport.authenticate('google', {scope: ['profile', 'email']}));

@@ -9,5 +9,6 @@ module.exports.profile = async function(req, res){
 
 module.exports.update = async function(req, res){
     await User.findByIdAndUpdate(req.body.id, {name: req.body.name});
+    req.flash('success', 'Profile updated successfully.');
     return res.redirect('back');
 }

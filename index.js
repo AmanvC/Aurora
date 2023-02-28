@@ -8,6 +8,8 @@ const passportLocal = require('./config/passport-local-strategy');
 const passportGoogle = require('./config/passport-google-oauth2-strategy');
 const passportFacebook = require('./config/passport-facebook-strategy');
 const expressLayouts = require('express-ejs-layouts');
+const flash = require('connect-flash');
+const flashMiddleware = require('./config/connect-flash-middleware');
 
 const port = 8000;
 
@@ -38,6 +40,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
+app.use(flash());
+app.use(flashMiddleware.setFlash);
 
 app.use('/', require('./routes'));
 

@@ -19,16 +19,19 @@ module.exports.signUp = function(req, res){
 module.exports.createUser = async function(req, res){
     try{
         if(req.body.email != req.body.re_email){
+            req.flash('error', 'Emails do not match!');
             console.log('Emails do not match!!');
-            return;
+            return res.redirect('back');
         }
         if(req.body.password != req.body.re_password){
+            req.flash('error', 'Passwords do not match!');
             console.log('Passwords do not match!!');
-            return;
+            return res.redirect('back');
         }
         const user = await User.findOne({email: req.body.email});
         // console.log(user)
         if(user){
+            req.flash('error', 'Email ID already exists, please login to continue!');
             console.log('User is already registered');
             return res.redirect('back');
         }
@@ -47,9 +50,11 @@ module.exports.createUser = async function(req, res){
         })
         newUser.save((err) => {
             if(err){
-                console.log('Error in email verification: ', err);
+                req.flash('error', 'Something went wrong!');
+                console.log('Error in saving user: ', err);
                 return;
             }
+            req.flash('success', 'Check your mailbox for verification code.');
             nodeMailer.sendConfirmationEmail(newUser.name, newUser.email, newUser.confirmationCode);
         })
         return res.redirect('/verify');
@@ -60,13 +65,11 @@ module.exports.createUser = async function(req, res){
 }
 
 module.exports.createSession = function(req, res){
-    console.log(req.user)
-    if(req.user.status != 'Active'){
-        // req.logout(() => {});
-        console.log('Email not confirmed!!!');
-        return res.redirect('/');
+    if(req.isAuthenticated()){
+        return res.redirect('/home');
     }
-    return res.redirect('/home');
+    return res.redirect('/')
+    
 }
 
 module.exports.home = async function(req, res){
@@ -88,10 +91,15 @@ module.exports.home = async function(req, res){
 
 module.exports.logout = function(req, res){
     if(req.isAuthenticated()){
-        req.logout((err) => {
-            console.log(`Error in logging out user: ${err}`);
+        req.logout(function(user, err){
+            if(err){
+                console.log(`Error in logging out user: ${err}`);
+                req.flash('error', 'Something went wrong, cannot logout!');
+                return res.redirect('/');
+            }
+            req.flash('success', 'You have been logged out!');
+            return res.redirect('/');
         })
-        return res.redirect('/');
     }
     
 }
@@ -99,13 +107,19 @@ module.exports.logout = function(req, res){
 module.exports.verifyUser = async function(req, res){
     console.log('Verify User', req.params)
     let user = await User.findOne({confirmationCode: req.params.confirmationCode});
-    if(user){
+    if(user && user.status === 'Pending'){
         user.status = 'Active'
         user.save();
         console.log(user)
+        return res.redirect('/verified');
+    }else if(user && user.status === 'Active'){
+        req.flash('error', 'Email is already verified!');
         return res.redirect('/home');
     }
-    return res.redirect('/');
+}
+
+module.exports.verified = function(req, res){
+    return res.render('verified');
 }
 
 module.exports.verify = function(req, res){

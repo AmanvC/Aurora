@@ -1,16 +1,25 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('../models/user');
+const nodeMailer = require('../mailers/user_verification_mailer');
 
 passport.use(new LocalStrategy(
-    {usernameField: 'email'}, (email, password, done) => {
+    {usernameField: 'email', passReqToCallback: true}, (req, email, password, done) => {
         User.findOne({email: email}, (err, user) => {
             if(err){
                 console.log(`Error in Passport Authentication: ${err}`);
                 return done(err);
             }
             if(!user || user.password != password){
+                req.flash('error', 'Invalid Credentials!');
                 console.log(`Invalid credentials`);
+                return done(null, false);
+            }
+            if(user && user.status !== 'Active'){
+                req.flash('error', 'Email is not verified, verification mail sent again!');
+                console.log(`Email is not confirmed!`);
+                nodeMailer.sendConfirmationEmail(user.name, user.email, user.confirmationCode);
+    
                 return done(null, false);
             }
             return done(null, user);
